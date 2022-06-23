@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "bLTcDcw9ImUZiISstApqJSegyMn2Wi4gg1GPkwWcf3nfjlzNofoVcx1XaWlQUUd6qwSqLV1+jfmz+G1Rw3hQXQ==",
+  "success": true,
+  "projectFilePath": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj",
+  "expectedPackageFiles": [
+    "/Users/adelowomi/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "/Users/adelowomi/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
