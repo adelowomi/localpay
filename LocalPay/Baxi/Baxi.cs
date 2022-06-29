@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using LocalPay.Baxi;
 using LocalPay.Interfaces;
@@ -31,6 +32,21 @@ namespace LocalPay
         public async Task<BaxiResponse<BalanceResponse>> GetBalance()
         {
             return await _baxiService.GetBalance();
+        }
+
+        public async Task<BaxiResponse<List<BIllerCategoryResponse>>> GetBillerCategory()
+        {
+            return await _baxiService.GetBillerCategory();
+        }
+
+        public async Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory(string serviceType)
+        {
+            return await _baxiService.GetBillerByCategory(serviceType);
+        }
+
+        public async Task<BaxiResponse<BaxiProvidersResponse>> GetBaxiProviders()
+        {
+            return await _baxiService.GetBaxiProviders();
         }
     }
 }

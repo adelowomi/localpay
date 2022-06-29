@@ -8,10 +8,16 @@ namespace LocalPay.Interfaces
 {
     public interface IBaxiService
     {
-         [Get("/superagent/account/balance")]
-         Task<BaxiResponse<BalanceResponse>> GetBalance();
+        [Get("/superagent/account/balance")]
+        Task<BaxiResponse<BalanceResponse>> GetBalance();
 
-         [Get("billers/category/all")]
-            Task<BaxiResponse<List<BIllerCategoryResponse>>> GetBillerCategory();
+        [Get("/billers/category/all")]
+        Task<BaxiResponse<List<BIllerCategoryResponse>>> GetBillerCategory();
+
+        [Post("/billers/service/category")]
+        Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory([Body] string service_type);
+
+        [Get("/services/airtime/providers")]
+        Task<BaxiResponse<BaxiProvidersResponse>> GetBaxiProviders();
     }
 }
