@@ -21,7 +21,7 @@ namespace LocalPay.Baxi
         Task<BaxiResponse<List<ProviderBouquetResponse>>> GetBouquetAddons(BouquetBody bouquet);
         Task<BaxiResponse<AirtimeResponse>> ChangeCableTvSubscription(CableSubscriptionBody cableSubscription);
         Task<BaxiResponse<EpinProviderResponse>> GetEpinProviders();
-        Task<BaxiResponse<EpinBundleResponse>> GetEpinBundles(string serviceType);
+        Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles(string serviceType);
         Task<BaxiResponse<EpinResponse>> PurchaseEpin(EpinBody epin);
         Task<BaxiResponse<JambCustomerResponse>> AccountValidation(JambCustomerBody jambCustomer);
         Task<BaxiResponse<List<JambProductResponse>>> GetJambProducts(string serviceType);
