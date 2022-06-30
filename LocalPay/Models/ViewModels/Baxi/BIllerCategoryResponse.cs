@@ -2,7 +2,7 @@ using Newtonsoft.Json;
 
 namespace LocalPay.Models.ViewModels.Baxi
 {
-    public class BIllerCategoryResponse
+    public class BillerCategoryResponse
     {
         [JsonProperty("name")]
         public string Name { get; set; }
