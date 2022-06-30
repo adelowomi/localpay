@@ -133,5 +133,15 @@ namespace LocalPay
         {
             return await _baxiService.AccountValidation(providerBundle);
         }
+
+        public async Task<BaxiResponse<ElectricityPrePaidResponse>> PurchasePrePaidElectricity(ElectricityBody electricity)
+        {
+            return await _baxiService.PurchasePrePaidElectricity(electricity);
+        }
+
+        public async Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity(ElectricityBody electricity)
+        {
+            return await _baxiService.PurchasePostPaidElectricity(electricity);
+        }
     }
 }

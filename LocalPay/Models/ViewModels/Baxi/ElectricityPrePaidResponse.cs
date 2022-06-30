@@ -2,7 +2,7 @@
 
 namespace LocalPay.Models.ViewModels.Baxi
 {
-    public class ElectricityPostPaidResponse :AirtimeResponse
+    public class ElectricityPrePaidResponse :AirtimeResponse
     {
         [JsonProperty("tokenCode")]
         public string TokenCode { get; set; }

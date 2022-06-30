@@ -28,10 +28,9 @@ namespace LocalPay.Baxi
         Task<BaxiResponse<JambProviderResponse>> PurchaseJambProduct(JambProductBody jambProduct);
         Task<BaxiResponse<List<BillersElectricityResponse>>> GetElectricityBillers();
         Task<BaxiResponse<AccountValidationResponse>> AccountValidation(ProviderBundleBody providerBundle);
-        /*
-          Task<BaxiResponse<AirtimeResponse>> PurchasePrePaidElectricity([Body] ElectricityBody electricity);
-          Task<BaxiResponse<ElectricityPostPaidResponse>> PurchasePostPaidElectricity([Body] ElectricityBody electricity);
-        */
+        Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity(ElectricityBody electricity);
+        Task<BaxiResponse<ElectricityPrePaidResponse>> PurchasePrePaidElectricity(ElectricityBody electricity);
+        
         
 
     }
