@@ -30,8 +30,5 @@ namespace LocalPay.Baxi
         Task<BaxiResponse<AccountValidationResponse>> AccountValidation(ProviderBundleBody providerBundle);
         Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity(ElectricityBody electricity);
         Task<BaxiResponse<ElectricityPrePaidResponse>> PurchasePrePaidElectricity(ElectricityBody electricity);
-        
-        
-
     }
 }

@@ -1,0 +1,145 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/adelowomi/Projects/LocalPay/LocalPayTestClient/LocalPayTestClient.csproj": {}
+  },
+  "projects": {
+    "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj",
+        "projectName": "LocalPay",
+        "projectPath": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj",
+        "packagesPath": "/Users/adelowomi/.nuget/packages/",
+        "outputPath": "/Users/adelowomi/Projects/LocalPay/LocalPay/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/adelowomi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[*, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Refit": {
+              "target": "Package",
+              "version": "[6.3.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/adelowomi/Projects/LocalPay/LocalPayTestClient/LocalPayTestClient.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/adelowomi/Projects/LocalPay/LocalPayTestClient/LocalPayTestClient.csproj",
+        "projectName": "LocalPayTestClient",
+        "projectPath": "/Users/adelowomi/Projects/LocalPay/LocalPayTestClient/LocalPayTestClient.csproj",
+        "packagesPath": "/Users/adelowomi/.nuget/packages/",
+        "outputPath": "/Users/adelowomi/Projects/LocalPay/LocalPayTestClient/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/adelowomi/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj": {
+                "projectPath": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
