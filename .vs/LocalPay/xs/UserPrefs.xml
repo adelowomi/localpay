@@ -1,4 +1,5 @@
-﻿<Properties>
-  <MonoDevelop.Ide.ItemProperties.LocalPay FirstBuild="True" />
+﻿<Properties StartupConfiguration="{57FB0577-0D1A-4ACF-AFB7-8CEC8D0F5B5B}|Default">
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.LocalPay FirstBuild="True" />
+  <MonoDevelop.Ide.ItemProperties.LocalPayTestClient PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
 </Properties>
