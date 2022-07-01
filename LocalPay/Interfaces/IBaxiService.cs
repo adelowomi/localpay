@@ -51,7 +51,7 @@ namespace LocalPay.Interfaces
         Task<BaxiResponse<EpinProviderResponse>> GetEpinProviders();
 
         [Post("/services/epin/bundles")]
-        Task<BaxiResponse<EpinBundleResponse>> GetEpinBundles([Body] string service_type);
+        Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles([Body] string service_type);
 
         [Post("/services/epin/request")]
         Task<BaxiResponse<EpinResponse>> PurchaseEpin([Body] EpinBody epin);

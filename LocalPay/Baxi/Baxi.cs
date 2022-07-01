@@ -107,7 +107,7 @@ namespace LocalPay.Baxi
             return await _baxiService.GetEpinProviders();
         }
 
-        public async Task<BaxiResponse<EpinBundleResponse>> GetEpinBundles(string serviceType)
+        public async Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles(string serviceType)
         {
             return await _baxiService.GetEpinBundles(serviceType);
         }
