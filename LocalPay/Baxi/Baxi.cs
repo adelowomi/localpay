@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 using LocalPay.Baxi;
 using LocalPay.Interfaces;
 using LocalPay.Models.UtilityModels;
 using LocalPay.Models.ViewModels.Baxi;
 using Models.InitializationModels;
 using Refit;
+using System.Net.Http;
+using System;
 
-namespace LocalPay
+namespace LocalPay.Baxi
 {
     public class BaxiPayments : IBaxiPayments
     {
@@ -17,16 +20,21 @@ namespace LocalPay
         public BaxiPayments(BaxiInitializationPayload options)
         {
             _options = options;
-            _baxiService =  RestService.For<IBaxiService>(baseUrl,
-                new RefitSettings
-                {
-                    AuthorizationHeaderValueGetter = () => AuthorizationHeaderValueProvider()
-                });
+            var client = new HttpClient(new HttpClientHandler())
+            {
+                BaseAddress = new Uri(baseUrl)
+            };
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Api-key", _options.APIKey);
+            var buider = RequestBuilder.ForType<IBaxiService>();
+            _baxiService = RestService.For(client, buider);
+            // RefitSettings settings = new RefitSettings{ AuthorizationHeaderValueGetter = () => AuthorizationHeaderValueProvider() };
+            // _baxiService =  RestService.For<IBaxiService>(baseUrl, settings);
         }
 
         private Task<string> AuthorizationHeaderValueProvider()
         {
-            return Task.Run(() => _options.APIKey);
+            var header = new AuthenticationHeaderValue("Bearer", _options.APIKey);
+            return Task.Run(() => header.ToString());
         }
 
         public async Task<BaxiResponse<BalanceResponse>> GetBalance()

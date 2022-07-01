@@ -71,10 +71,10 @@ namespace LocalPay.Interfaces
         [Post("/services/namefinder/query")]
         Task<BaxiResponse<AccountValidationResponse>> AccountValidation([Body] ProviderBundleBody providerBundle);
 
-        [Post("services/electricity/request")]
+        [Post("/services/electricity/request")]
         Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity([Body] ElectricityBody electricity);
 
-        [Post("services/electricity/request")]
+        [Post("/services/electricity/request")]
         Task<BaxiResponse<ElectricityPrePaidResponse>> PurchasePrePaidElectricity([Body] ElectricityBody electricity);
         
 
