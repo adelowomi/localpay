@@ -1,11 +1,13 @@
 using LocalPay.Baxi;
+using LocalPay.Models.ViewModels.Baxi;
 using LocalPayTestClient.Services.Abstraction;
+
 
 namespace LocalPayTestClient.Services
 {
     public class TestService : ITestService
     {
-
+        
         private readonly IBaxiPayments _baxiService;
 
         public TestService(IBaxiPayments baxiService)
@@ -18,25 +20,26 @@ namespace LocalPayTestClient.Services
            GetBalance();   
            GetBillerCategory(); 
            GetBaxiProviders();
-           GetBillerByCategory();
+           GetBillerByCategory(); 
            GetBouquetAddons();
-           GetDataBundleServiceProviders();
-           GetElectricityBillers();
-           GetEpinBundles();
+           GetDataBundleServiceProviders(); 
+           GetElectricityBillers(); 
+           GetEpinBundles(); 
            GetEpinProviders();
-           GetJambProducts();
-           GetJambProviders();
-           GetProviderBouquets();
+           //GetJambProducts();//method not allowed
+           GetProviderBouquets(); 
+           JambAccountValidation();
            GetProviderBundles();
            PurchaseAirtime();
-           PurchaseDataBundle();
-           PurchaseEpin();
-           PurchaseJambProduct();
+           PurchaseDataBundle(); 
+           PurchaseSpectranetDataBundle();
+           PurchaseEpin(); 
+           //PurchaseJambProduct(); //500
            PurchasePostPaidElectricity();
            PurchasePrePaidElectricity();
-           ChangeCableSubscriptionBody();
-           AccountValidation();
-           JambAccountValidation();
+           ChangeCableTvSubscription();
+           ElectricityAccountValidation();
+           
            SubscriptionRenewal();
            MultichoiceAccountValidation();
            Console.WriteLine("If this shows up, the test service is working!");
@@ -56,8 +59,12 @@ namespace LocalPayTestClient.Services
 
         private void GetBillerByCategory()
         {
-            var biller = _baxiService.GetBillerByCategory("airtime").Result;
-            Console.WriteLine("Biller" + biller.Data[0].id);
+           var serviceType =  new ServiceBody()
+            {
+                ServiceType = "epin"
+            };
+            var biller = _baxiService.GetBillerByCategory(serviceType).Result;
+            Console.WriteLine("Biller: " + biller.Data[0].ServiceCategory);
         }
 
         private void GetBaxiProviders()
@@ -68,14 +75,15 @@ namespace LocalPayTestClient.Services
 
         private void PurchaseAirtime()
         {
+            Random rd = new Random();
             var airtime = new AirtimeBody
             {
                 Plan = "prepaid",
                 Amount = 100,
-                AgentReference = "12",
-                serviceType = "mtn",
-                Phone = "08000000000000",
-                AgentId = "081"
+                AgentReference = RandomNumber(),
+                ServiceType = "mtn",
+                Phone = "07035361770",
+                AgentId = RandomNumber()
             };
             var airtimeResponse = _baxiService.PurchaseAirtime(airtime).Result;
             Console.WriteLine("Airtime Response: " + airtimeResponse.Data.StatusCode);
@@ -84,7 +92,8 @@ namespace LocalPayTestClient.Services
 
         private void GetDataBundleServiceProviders()
         {
-            _baxiService.GetDataBundleServiceProviders().Result; 
+          var dataBundle = _baxiService.GetDataBundleServiceProviders().Result; 
+          Console.WriteLine("Data Bundle Providers: " + dataBundle.Data.Providers[0].Name);
         }
 
         private void GetProviderBundles()
@@ -94,7 +103,7 @@ namespace LocalPayTestClient.Services
                 ServiceType = "mtn"
             };
             var providerBundleResponse = _baxiService.GetProviderBundles(providerBundle).Result;
-            Console.WriteLine("Provider Bundle Response: " + providerBundleResponse.Data[0].DataCode);
+            Console.WriteLine("Provider Bundle Response: " + providerBundleResponse.Data[0].Datacode);
         }
 
         private void PurchaseDataBundle()
@@ -102,16 +111,32 @@ namespace LocalPayTestClient.Services
             var dataBundle = new DataBundleBody
             {
                 Plan = "prepaid",
-                Amount = 1000,
-                AgentReference = "123",
-                serviceType = "mtn",
-                Phone = "08000000000000"
-                AgentId = "08067",
-                DataCode = "1000",
-
+                Amount = 100,
+                AgentReference = RandomNumber(),
+                ServiceType = "mtn",
+                Phone = "07035361770",
+                AgentId = RandomNumber(),
+                DataCode = "100"
             };
             var dataBundleResponse = _baxiService.PurchaseDataBundle(dataBundle).Result;
             Console.WriteLine("Data Bundle Response: " + dataBundleResponse.Data.StatusCode);
+        }
+
+        private void PurchaseSpectranetDataBundle()
+        {
+            var dataBundle = new SpectranetBody
+            {
+                Plan = "prepaid",
+                Amount = 5000,
+                AgentReference = RandomNumber(),
+                ServiceType = "spectranet",
+                Phone = "210001245",
+                AgentId = RandomNumber(),
+                DataCode = "43456",
+                Package = "CHANGE_IMMEDIATE"
+            };
+            var dataBundleResponse = _baxiService.PurchaseDataBundle(dataBundle).Result;
+            Console.WriteLine("Data Spectranet Bundle Response: " + dataBundleResponse.Data.StatusCode);
         }
 
         private void MultichoiceAccountValidation()
@@ -129,12 +154,12 @@ namespace LocalPayTestClient.Services
         {
                 var subscription = new SubscriptionBody
                 {
-                    TotalAmount = 2000,
+                    TotalAmount = "2000",
                     ProductMonthsPaidFor = "1",
                     ProductCode="0",
                     ServiceType = "dstv",
-                    AgentId = "08012",
-                    AgentReference = "1234",
+                    AgentId = RandomNumber(),
+                    AgentReference = RandomNumber(),
                     SmartcardNumber = "4131953321"
 
                 };
@@ -144,8 +169,12 @@ namespace LocalPayTestClient.Services
 
        private void GetProviderBouquets()
         {
-            var providerBouquet = _baxiService.GetProviderBouquets("dstv").Result;
-            Console.WriteLine("Provider Bouquets: " + provideBouquet[0].Data[0].Name);
+             var serviceType =  new ServiceBody()
+            {
+                ServiceType = "dstv"
+            };
+            var providerBouquet = _baxiService.GetProviderBouquets(serviceType).Result;
+            Console.WriteLine("Provider Bouquets: " + providerBouquet.Data[0].Name);
         }
 
         private void GetBouquetAddons()
@@ -155,21 +184,21 @@ namespace LocalPayTestClient.Services
                 ServiceType = "dstv",
                 ProductCode = "ASIADDE36"
             };
-            var List<bouquetResponse> = _baxiService.GetBouquetAddons(bouquet).Result;
-            Console.WriteLine("Bouquet Addons: " + bouquetResponse[0].Data[0].Name);
+            var bouquetResponse = _baxiService.GetBouquetAddons(bouquet).Result;
+            Console.WriteLine("Bouquet Addons: " + bouquetResponse.Status);
         }
 
         private void ChangeCableTvSubscription()
         {
-            vary cableSubscription = new CableSubscriptionBody
+            var cableSubscription = new CableSubscriptionBody
             {
                 ServiceType = "dstv",
-                ProductCode = "ASIADDE36",
+                ProductCode = "PRWFRNSE36",
                 ProductMonthsPaidFor = "1",
-                AgentId = "08056",
-                AgentReference = "12345",
+                AgentId = RandomNumber(),
+                AgentReference = RandomNumber(),
                 SmartcardNumber = "4131953321",
-                TotalAmount = 5050,
+                TotalAmount = "29300",
                 AddonMonthsPaidFor = "1"
             };
             var cableSubscriptionResponse = _baxiService.ChangeCableTvSubscription(cableSubscription).Result;
@@ -185,19 +214,23 @@ namespace LocalPayTestClient.Services
 
        private void GetEpinBundles()
         {
-            var epinBouquets = _baxiService.GetEpinBundles("glo").Result;
-            Console.WriteLine("Epin Bouquets: " + epinBouquets.Data[0].amount);
+            var serviceType =  new ServiceBody()
+            {
+                ServiceType = "glo"
+            };
+            var epinBouquets = _baxiService.GetEpinBundles(serviceType).Result;
+            Console.WriteLine("Epin Bouquets: " + epinBouquets.Data[0].Amount);
         }
 
         private void PurchaseEpin()
         {
-            var epin = new Epin
+            var epin = new EpinBody
             {
                 ServiceType = "glo",
-                PinValue = "50",
-                NumberOfPins = "1",
-                AgentId = "0800",
-                AgentReference = "123456",
+                PinValue = 50,
+                NumberOfPins = 1,
+                AgentId = RandomNumber(),
+                AgentReference = RandomNumber(),
                 Amount = 50,
             };
             var epinResponse = _baxiService.PurchaseEpin(epin).Result;
@@ -218,7 +251,11 @@ namespace LocalPayTestClient.Services
 
         private void GetJambProducts()
         {
-            var jambProviders = _baxiService.GetJambProviders("jamb").Result;
+            var serviceType =  new ServiceBody()
+            {
+                ServiceType = "jamb"
+            };
+            var jambProviders = _baxiService.GetJambProducts(serviceType).Result;
             Console.WriteLine("Jamb Providers: " + jambProviders.Data[0].Id);
         }
 
@@ -227,10 +264,10 @@ namespace LocalPayTestClient.Services
             var jambProduct = new JambProductBody
             {
                 ServiceType = "jamb",
-                AccountNumber = "9678528341",
+                AccountNumber = "9678528352",
                 ProductCode = "DE",
-                Phonenumber = "08000000000000",
-                AgentReference = "1234567",
+                Phonenumber = "08000000000",
+                AgentReference = RandomNumber(),
                 Amount = 4000
             };
             var jambProductResponse = _baxiService.PurchaseJambProduct(jambProduct).Result;
@@ -240,15 +277,15 @@ namespace LocalPayTestClient.Services
         private void GetElectricityBillers()
         {
             var electricityBillers = _baxiService.GetElectricityBillers().Result;
-            Console.WriteLine("Electricity Billers: " + electricityBillers.Data[0].Name);
+            Console.WriteLine("Electricity Billers: " + electricityBillers.Data.Providers[0].Name);
         }
 
-        private void AccountValidation()
+        private void ElectricityAccountValidation()
         {
-            var providerBundle = new providerBundleBody
+            var providerBundle = new ProviderBundleBody
             {
-                ServiceType = "jamb",
-                AccountNumber = "9678528341",
+                ServiceType = "ikeja_electric_prepaid",
+                AccountNumber = "04042404048",
             };
             var providerBundleResponse = _baxiService.AccountValidation(providerBundle).Result;
             Console.WriteLine("Account Validation Response: " + providerBundleResponse.Data.User.Name);
@@ -260,10 +297,10 @@ namespace LocalPayTestClient.Services
             {
                 ServiceType = "ikeja_electric_postpaid",
                 AccountNumber = "04042404139",
-                Phonenumber = "08000000000000",
-                AgentReference = "12345678",
+                Phonenumber = "08000000000",
+                AgentReference = RandomNumber(),
                 Amount = 1000,
-                AgentId = "1230"
+                AgentId = RandomNumber()
             };
             var electricityResponse = _baxiService.PurchasePostPaidElectricity(electricity).Result;
             Console.WriteLine("Purchase Post Paid Electricity Response: " + electricityResponse.Data.StatusCode);
@@ -275,15 +312,20 @@ namespace LocalPayTestClient.Services
             {
                 ServiceType = "ikeja_electric_prepaid",
                 AccountNumber = "04042404048",
-                Phonenumber = "08000000000000",
-                AgentReference = "1234568",
+                Phonenumber = "08000000000",
+                AgentReference = RandomNumber(),
                 Amount = 1000,
-                AgentId = "12301"
+                AgentId = RandomNumber()
             };
             var electricityResponse = _baxiService.PurchasePrePaidElectricity(electricity).Result;
             Console.WriteLine("Purchase Pre Paid Electricity Response: " + electricityResponse.Data.StatusCode);
         }
         
-
+        private string RandomNumber()
+        {
+            var random = new Random();
+            var randomNumber = random.Next(1, 1000);
+            return randomNumber.ToString();
+        }
     }
 }

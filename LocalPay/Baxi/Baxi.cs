@@ -47,7 +47,7 @@ namespace LocalPay.Baxi
             return await _baxiService.GetBillerCategory();
         }
 
-        public async Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory(string serviceType)
+        public async Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory(ServiceBody serviceType)
         {
             return await _baxiService.GetBillerByCategory(serviceType);
         }
@@ -62,9 +62,9 @@ namespace LocalPay.Baxi
             return await _baxiService.PurchaseAirtime(airtime);
         }
 
-        public async Task GetDataBundleServiceProviders()
+        public async Task<BaxiResponse<DataProviderResponse>> GetDataBundleServiceProviders()
         {
-            await _baxiService.GetDataBundleServiceProviders();
+            return await _baxiService.GetDataBundleServiceProviders();
         }
 
         public async Task<BaxiResponse<List<ProviderBundleResponse>>> GetProviderBundles(ProviderBundleBody providerBundle)
@@ -77,6 +77,12 @@ namespace LocalPay.Baxi
             return await _baxiService.PurchaseDataBundle(dataBundle);
         }
 
+
+        public async Task<BaxiResponse<AirtimeResponse>> PurchaseSpectranetDataBundle(DataBundleBody dataBundle)
+        {
+            return await _baxiService.PurchaseSpectranetDataBundle(dataBundle);
+        }
+
         public async Task<BaxiResponse<MultichoiceAccountResponse>> MultichoiceAccountValidation(ProviderBundleBody providerBundle)
         {
             return await _baxiService.MultichoiceAccountValidation(providerBundle);
@@ -87,7 +93,7 @@ namespace LocalPay.Baxi
             return await _baxiService.SubscriptionRenewal(subscription);
         }
 
-        public async Task<BaxiResponse<List<ProviderBouquetResponse>>> GetProviderBouquets(string serviceType)
+        public async Task<BaxiResponse<List<ProviderBouquetResponse>>> GetProviderBouquets(ServiceBody serviceType)
         {
             return await _baxiService.GetProviderBouquets(serviceType);
         }
@@ -102,12 +108,12 @@ namespace LocalPay.Baxi
             return await _baxiService.ChangeCableTvSubscription(cableSubscription);
         }
 
-        public async Task<BaxiResponse<EpinProviderResponse>> GetEpinProviders()
+        public async Task<BaxiResponse<DataProviderResponse>> GetEpinProviders()
         {
             return await _baxiService.GetEpinProviders();
         }
 
-        public async Task<BaxiResponse<EpinBundleResponse>> GetEpinBundles(string serviceType)
+        public async Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles(ServiceBody serviceType)
         {
             return await _baxiService.GetEpinBundles(serviceType);
         }
@@ -122,7 +128,7 @@ namespace LocalPay.Baxi
             return await _baxiService.AccountValidation(jambCustomer);
         }
 
-        public async Task<BaxiResponse<List<JambProductResponse>>> GetJambProducts(string serviceType)
+        public async Task<BaxiResponse<List<JambProductResponse>>> GetJambProducts(ServiceBody serviceType)
         {
             return await _baxiService.GetJambProducts(serviceType);
         }
@@ -132,7 +138,7 @@ namespace LocalPay.Baxi
             return await _baxiService.PurchaseJambProduct(jambProduct);
         }
 
-        public async Task<BaxiResponse<List<BillersElectricityResponse>>> GetElectricityBillers()
+        public async Task<BaxiResponse<DataProviderResponse>> GetElectricityBillers()
         {
             return await _baxiService.GetElectricityBillers();
         }
@@ -147,7 +153,7 @@ namespace LocalPay.Baxi
             return await _baxiService.PurchasePrePaidElectricity(electricity);
         }
 
-        public async Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity(ElectricityBody electricity)
+        public async Task<BaxiResponse<PostPaidResponse>> PurchasePostPaidElectricity(ElectricityBody electricity)
         {
             return await _baxiService.PurchasePostPaidElectricity(electricity);
         }
