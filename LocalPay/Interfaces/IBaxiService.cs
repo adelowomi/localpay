@@ -14,8 +14,8 @@ namespace LocalPay.Interfaces
         [Get("/billers/category/all")]
         Task<BaxiResponse<List<BillerCategoryResponse>>> GetBillerCategory();
 
-        [Post("/billers/service/category")]
-        Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory([Body] string service_type);
+        [Post("/billers/services/category")]
+        Task<BaxiResponse<List<BillerResponse>>> GetBillerByCategory([Body] ServiceBody serviceType);
 
         [Get("/services/airtime/providers")]
         Task<BaxiResponse<BaxiProvidersResponse>> GetBaxiProviders();
@@ -24,13 +24,16 @@ namespace LocalPay.Interfaces
         Task<BaxiResponse<AirtimeResponse>> PurchaseAirtime([Body] AirtimeBody airtime);
 
         [Get("/services/databundle/providers")]
-        Task GetDataBundleServiceProviders();
+        Task<BaxiResponse<DataProviderResponse>> GetDataBundleServiceProviders();
 
         [Post("/services/databundle/bundles")]
         Task<BaxiResponse<List<ProviderBundleResponse>>> GetProviderBundles([Body] ProviderBundleBody providerBundle);
 
         [Post("/services/databundle/request")]
         Task<BaxiResponse<AirtimeResponse>> PurchaseDataBundle([Body] DataBundleBody dataBundle);
+
+        [Post("/services/databundle/request")]
+        Task<BaxiResponse<AirtimeResponse>> PurchaseSpectranetDataBundle([Body] DataBundleBody dataBundle);
 
         [Post("/services/namefinder/query")]
         Task<BaxiResponse<MultichoiceAccountResponse>> MultichoiceAccountValidation([Body] ProviderBundleBody providerBundle);
@@ -39,7 +42,7 @@ namespace LocalPay.Interfaces
         Task<BaxiResponse<SubscriptionResponse>> SubscriptionRenewal([Body] SubscriptionBody subscription);
 
         [Post("/services/multichoice/list")]
-        Task<BaxiResponse<List<ProviderBouquetResponse>>> GetProviderBouquets([Body] string service_type);
+        Task<BaxiResponse<List<ProviderBouquetResponse>>> GetProviderBouquets([Body] ServiceBody serviceType);
 
         [Post("/services/multichoice/addons")]
         Task<BaxiResponse<List<ProviderBouquetResponse>>> GetBouquetAddons([Body] BouquetBody bouquet);
@@ -48,10 +51,10 @@ namespace LocalPay.Interfaces
         Task<BaxiResponse<AirtimeResponse>> ChangeCableTvSubscription([Body] CableSubscriptionBody subscription);
 
         [Get("/services/epin/providers")]
-        Task<BaxiResponse<EpinProviderResponse>> GetEpinProviders();
+        Task<BaxiResponse<DataProviderResponse>> GetEpinProviders();
 
         [Post("/services/epin/bundles")]
-        Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles([Body] string service_type);
+        Task<BaxiResponse<List<EpinBundleResponse>>> GetEpinBundles([Body] ServiceBody serviceType);
 
         [Post("/services/epin/request")]
         Task<BaxiResponse<EpinResponse>> PurchaseEpin([Body] EpinBody epin);
@@ -60,19 +63,19 @@ namespace LocalPay.Interfaces
         Task<BaxiResponse<JambCustomerResponse>> AccountValidation([Body] JambCustomerBody jambCustomer);
 
         [Post("/exampins/products")]
-        Task<BaxiResponse<List<JambProductResponse>>> GetJambProducts([Body] string service_type);
+        Task<BaxiResponse<List<JambProductResponse>>> GetJambProducts([Body] ServiceBody serviceType);
 
-        [Post("/services/exampins/request")]
+        [Post("/services/exampin/request")]
         Task<BaxiResponse<JambProviderResponse>> PurchaseJambProduct([Body] JambProductBody jambProduct);
 
         [Get("/services/electricity/billers")]
-        Task<BaxiResponse<List<BillersElectricityResponse>>> GetElectricityBillers();
+        Task<BaxiResponse<DataProviderResponse>> GetElectricityBillers();
 
         [Post("/services/namefinder/query")]
         Task<BaxiResponse<AccountValidationResponse>> AccountValidation([Body] ProviderBundleBody providerBundle);
 
         [Post("/services/electricity/request")]
-        Task<BaxiResponse<AirtimeResponse>> PurchasePostPaidElectricity([Body] ElectricityBody electricity);
+        Task<BaxiResponse<PostPaidResponse>> PurchasePostPaidElectricity([Body] ElectricityBody electricity);
 
         [Post("/services/electricity/request")]
         Task<BaxiResponse<ElectricityPrePaidResponse>> PurchasePrePaidElectricity([Body] ElectricityBody electricity);

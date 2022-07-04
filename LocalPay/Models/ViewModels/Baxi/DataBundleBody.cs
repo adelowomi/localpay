@@ -7,8 +7,6 @@ namespace LocalPay.Models.ViewModels.Baxi
         [JsonPropertyName("datacode")]
         public string DataCode { get; set; }
 
-        [JsonPropertyName("package")]
-        public string Package { get; set; }
 
     }
 }

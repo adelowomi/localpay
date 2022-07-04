@@ -11,7 +11,10 @@ namespace LocalPay.Models.ViewModels.Baxi
         public string Address { get; set; }
 
         [JsonProperty("outstandingBalance")]
-        public int OutstandingBalance { get; set; }
+        public object OutstandingBalance { get; set; }
+
+        [JsonProperty("dueDate")]
+        public  object DueDate { get; set; }
 
         [JsonProperty("district")]
         public string District { get; set; }
@@ -20,10 +23,13 @@ namespace LocalPay.Models.ViewModels.Baxi
         public string AccountNumber { get; set; }
 
         [JsonProperty("minimumAmount")]
-        public int MinimumAmount { get; set; }
+        public string MinimumAmount { get; set; }
 
         [JsonProperty("rawOutput")]
         public T RawOutput { get; set; }
+        
+        [JsonProperty("errorMessage")]
+        public string ErrorMessage { get; set; }
 
     }
 }
