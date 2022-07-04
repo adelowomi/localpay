@@ -1,5 +1,23 @@
 ﻿<Properties StartupConfiguration="{57FB0577-0D1A-4ACF-AFB7-8CEC8D0F5B5B}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="LocalPay" expanded="True">
+            <Node name="LocalPay" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.LocalPay FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.LocalPayTestClient PreferredExecutionTarget="MonoDevelop.Default" FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.LocalPayTestClient FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

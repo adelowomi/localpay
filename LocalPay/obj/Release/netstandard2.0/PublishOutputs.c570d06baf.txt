@@ -1,0 +1,16 @@
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/LocalPay.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/LocalPay.deps.json
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/LocalPay.pdb
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/Microsoft.Extensions.DependencyInjection.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/Newtonsoft.Json.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/Refit.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Buffers.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Memory.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Net.Http.Json.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Numerics.Vectors.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Runtime.CompilerServices.Unsafe.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Text.Encodings.Web.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Text.Json.dll
+/Users/adelowomi/Projects/LocalPay/LocalPay/bin/Release/netstandard2.0/publish/System.Threading.Tasks.Extensions.dll
