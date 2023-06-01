@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj": {}
+    "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/LocalPay.csproj": {}
   },
   "projects": {
-    "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj": {
-      "version": "1.0.0",
+    "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/LocalPay.csproj": {
+      "version": "1.0.3",
       "restore": {
-        "projectUniqueName": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj",
+        "projectUniqueName": "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/LocalPay.csproj",
         "projectName": "LocalPay",
-        "projectPath": "/Users/adelowomi/Projects/LocalPay/LocalPay/LocalPay.csproj",
-        "packagesPath": "/Users/adelowomi/.nuget/packages/",
-        "outputPath": "/Users/adelowomi/Projects/LocalPay/LocalPay/obj/",
+        "projectPath": "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/LocalPay.csproj",
+        "packagesPath": "/Users/harmoniccoder/.nuget/packages/",
+        "outputPath": "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/adelowomi/.nuget/NuGet/NuGet.Config"
+          "/Users/harmoniccoder/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
@@ -40,7 +40,7 @@
           "dependencies": {
             "Microsoft.Extensions.DependencyInjection": {
               "target": "Package",
-              "version": "[*, )"
+              "version": "[6.0.0, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -63,11 +63,12 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
         }
       }
     }

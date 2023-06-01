@@ -8,3 +8,13 @@
 /Users/adelowomi/Projects/LocalPay/LocalPay/obj/Debug/netstandard2.0/LocalPay.csproj.CoreCompileInputs.cache
 /Users/adelowomi/Projects/LocalPay/LocalPay/obj/Debug/netstandard2.0/LocalPay.dll
 /Users/adelowomi/Projects/LocalPay/LocalPay/obj/Debug/netstandard2.0/LocalPay.pdb
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/bin/Debug/netstandard2.0/LocalPay.deps.json
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/bin/Debug/netstandard2.0/LocalPay.dll
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/bin/Debug/netstandard2.0/LocalPay.pdb
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.csproj.AssemblyReference.cache
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.GeneratedMSBuildEditorConfig.editorconfig
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.AssemblyInfoInputs.cache
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.AssemblyInfo.cs
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.csproj.CoreCompileInputs.cache
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.dll
+/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/obj/Debug/netstandard2.0/LocalPay.pdb

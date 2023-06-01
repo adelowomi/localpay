@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v2.0": {},
     ".NETStandard,Version=v2.0/": {
-      "LocalPay/\n\t\t\t1.0.0\n\t\t": {
+      "LocalPay/\n\t\t\t1.0.3\n\t\t": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "NETStandard.Library": "2.0.3",
@@ -176,7 +176,7 @@
     }
   },
   "libraries": {
-    "LocalPay/\n\t\t\t1.0.0\n\t\t": {
+    "LocalPay/\n\t\t\t1.0.3\n\t\t": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
