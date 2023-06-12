@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ry3EktsvqfiDFbLqjoCWPavaL53xg/We/rZqwnhCg4ok9UOmljhgrih8p/5UtIt8BikeXhzcElEGZqmAiFVpbg==",
+  "dgSpecHash": "89k2CbO10/Dt7alhkCbxd1qw79BlscHWTB9WqVdxUMuRRDOOHjlu9tHO0t7/tuIsSn9Dkk+h23ugUi4Gt2WuHA==",
   "success": true,
   "projectFilePath": "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPayTestClient/LocalPayTestClient.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,7 @@
     "/Users/harmoniccoder/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/harmoniccoder/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/harmoniccoder/.nuget/packages/system.text.json/6.0.0/system.text.json.6.0.0.nupkg.sha512",
-    "/Users/harmoniccoder/.nuget/packages/localpay/1.0.3/localpay.1.0.3.nupkg.sha512"
+    "/Users/harmoniccoder/.nuget/packages/localpay/1.0.6/localpay.1.0.6.nupkg.sha512"
   ],
   "logs": []
 }

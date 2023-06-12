@@ -19,6 +19,7 @@ namespace LocalPayTestClient.Services
             InitiatePayment();
             // InitiateTokenizedPayment();
             GetBanks();
+            ValidatePayment();
         }
 
         public void InitiateNgnTransfer()
@@ -87,6 +88,12 @@ namespace LocalPayTestClient.Services
         public void GetBanks()
         {
             var response = _flutterwavePayments.GetBanks("NG").Result;
+            Console.WriteLine(response.status);
+        }
+    
+        public void ValidatePayment()
+        {
+            var response = _flutterwavePayments.ValidatePayment(4368404).Result;
             Console.WriteLine(response.status);
         }
     }

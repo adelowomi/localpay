@@ -657,7 +657,7 @@
           "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
-      "LocalPay/1.0.3": {
+      "LocalPay/1.0.6": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
@@ -1482,7 +1482,7 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "LocalPay/1.0.3": {
+    "LocalPay/1.0.6": {
       "type": "project",
       "path": "../LocalPay/LocalPay.csproj",
       "msbuildProject": "../LocalPay/LocalPay.csproj"
@@ -1490,7 +1490,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "LocalPay >= 1.0.3",
+      "LocalPay >= 1.0.6",
       "Microsoft.Extensions.DependencyInjection >= 6.0.0",
       "Microsoft.Extensions.Hosting >= 6.0.1",
       "Microsoft.Extensions.Hosting.Abstractions >= 6.0.0"

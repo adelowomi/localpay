@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "LocalPayTestClient/1.0.0": {
         "dependencies": {
-          "LocalPay": "1.0.2",
+          "LocalPay": "1.0.5",
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.1",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0"
@@ -418,7 +418,7 @@
           "System.Text.Encodings.Web": "6.0.0"
         }
       },
-      "LocalPay/1.0.2": {
+      "LocalPay/1.0.5": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "6.0.0",
           "Newtonsoft.Json": "13.0.1",
@@ -667,7 +667,7 @@
       "path": "system.text.json/6.0.0",
       "hashPath": "system.text.json.6.0.0.nupkg.sha512"
     },
-    "LocalPay/1.0.2": {
+    "LocalPay/1.0.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

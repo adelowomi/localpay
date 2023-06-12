@@ -801,7 +801,7 @@
     "/Users/harmoniccoder/.nuget/packages/": {}
   },
   "project": {
-    "version": "1.0.3",
+    "version": "1.0.6",
     "restore": {
       "projectUniqueName": "/Users/harmoniccoder/Documents/Backend Projects/localpay/LocalPay/LocalPay.csproj",
       "projectName": "LocalPay",

@@ -17,7 +17,7 @@ namespace LocalPay.Flutterwave.Models
         public int amount { get; set; }
         public string currency { get; set; }
         public int charged_amount { get; set; }
-        public int app_fee { get; set; }
+        public decimal app_fee { get; set; }
         public int merchant_fee { get; set; }
         public string processor_response { get; set; }
         public string auth_model { get; set; }
@@ -27,7 +27,7 @@ namespace LocalPay.Flutterwave.Models
         public string payment_type { get; set; }
         public DateTime created_at { get; set; }
         public int account_id { get; set; }
-        public int amount_settled { get; set; }
+        public decimal amount_settled { get; set; }
         public PaymentResponseCard Card { get; set; }
     }
 }
