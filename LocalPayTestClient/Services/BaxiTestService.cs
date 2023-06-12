@@ -5,44 +5,44 @@ using LocalPayTestClient.Services.Abstraction;
 
 namespace LocalPayTestClient.Services
 {
-    public class TestService : ITestService
+    public class BaxiTestService : IBaxiTestService
     {
-        
+
         private readonly IBaxiPayments _baxiService;
 
-        public TestService(IBaxiPayments baxiService)
+        public BaxiTestService(IBaxiPayments baxiService)
         {
             _baxiService = baxiService;
         }
 
         public void InitiateTest()
         {
-           GetBalance();   
-           GetBillerCategory(); 
-           GetBaxiProviders();
-           GetBillerByCategory(); 
-           GetBouquetAddons();
-           GetDataBundleServiceProviders(); 
-           GetElectricityBillers(); 
-           GetEpinBundles(); 
-           GetEpinProviders();
-           //GetJambProducts();//method not allowed
-           GetProviderBouquets(); 
-           JambAccountValidation();
-           GetProviderBundles();
-           PurchaseAirtime();
-           PurchaseDataBundle(); 
-           PurchaseSpectranetDataBundle();
-           PurchaseEpin(); 
-           //PurchaseJambProduct(); //500
-           PurchasePostPaidElectricity();
-           PurchasePrePaidElectricity();
-           ChangeCableTvSubscription();
-           ElectricityAccountValidation();
-           
-           SubscriptionRenewal();
-           MultichoiceAccountValidation();
-           Console.WriteLine("If this shows up, the test service is working!");
+            GetBalance();
+            GetBillerCategory();
+            GetBaxiProviders();
+            GetBillerByCategory();
+            GetBouquetAddons();
+            GetDataBundleServiceProviders();
+            GetElectricityBillers();
+            GetEpinBundles();
+            GetEpinProviders();
+            //GetJambProducts();//method not allowed
+            GetProviderBouquets();
+            JambAccountValidation();
+            GetProviderBundles();
+            PurchaseAirtime();
+            PurchaseDataBundle();
+            PurchaseSpectranetDataBundle();
+            PurchaseEpin();
+            //PurchaseJambProduct(); //500
+            PurchasePostPaidElectricity();
+            PurchasePrePaidElectricity();
+            ChangeCableTvSubscription();
+            ElectricityAccountValidation();
+
+            SubscriptionRenewal();
+            MultichoiceAccountValidation();
+            Console.WriteLine("If this shows up, the test service is working!");
         }
 
         private void GetBalance()
@@ -59,7 +59,7 @@ namespace LocalPayTestClient.Services
 
         private void GetBillerByCategory()
         {
-           var serviceType =  new ServiceBody()
+            var serviceType = new ServiceBody()
             {
                 ServiceType = "epin"
             };
@@ -92,8 +92,8 @@ namespace LocalPayTestClient.Services
 
         private void GetDataBundleServiceProviders()
         {
-          var dataBundle = _baxiService.GetDataBundleServiceProviders().Result; 
-          Console.WriteLine("Data Bundle Providers: " + dataBundle.Data.Providers[0].Name);
+            var dataBundle = _baxiService.GetDataBundleServiceProviders().Result;
+            Console.WriteLine("Data Bundle Providers: " + dataBundle.Data.Providers[0].Name);
         }
 
         private void GetProviderBundles()
@@ -152,24 +152,24 @@ namespace LocalPayTestClient.Services
 
         private void SubscriptionRenewal()
         {
-                var subscription = new SubscriptionBody
-                {
-                    TotalAmount = "2000",
-                    ProductMonthsPaidFor = "1",
-                    ProductCode="0",
-                    ServiceType = "dstv",
-                    AgentId = RandomNumber(),
-                    AgentReference = RandomNumber(),
-                    SmartcardNumber = "4131953321"
+            var subscription = new SubscriptionBody
+            {
+                TotalAmount = "2000",
+                ProductMonthsPaidFor = "1",
+                ProductCode = "0",
+                ServiceType = "dstv",
+                AgentId = RandomNumber(),
+                AgentReference = RandomNumber(),
+                SmartcardNumber = "4131953321"
 
-                };
-                var subscriptionResponse = _baxiService.SubscriptionRenewal(subscription).Result;
-                Console.WriteLine("Subscription Renewal Response: " + subscriptionResponse.Data.StatusCode);
+            };
+            var subscriptionResponse = _baxiService.SubscriptionRenewal(subscription).Result;
+            Console.WriteLine("Subscription Renewal Response: " + subscriptionResponse.Data.StatusCode);
         }
 
-       private void GetProviderBouquets()
+        private void GetProviderBouquets()
         {
-             var serviceType =  new ServiceBody()
+            var serviceType = new ServiceBody()
             {
                 ServiceType = "dstv"
             };
@@ -212,9 +212,9 @@ namespace LocalPayTestClient.Services
             Console.WriteLine("Epin Providers: " + epinProviders.Data.Providers[0].Name);
         }
 
-       private void GetEpinBundles()
+        private void GetEpinBundles()
         {
-            var serviceType =  new ServiceBody()
+            var serviceType = new ServiceBody()
             {
                 ServiceType = "glo"
             };
@@ -251,7 +251,7 @@ namespace LocalPayTestClient.Services
 
         private void GetJambProducts()
         {
-            var serviceType =  new ServiceBody()
+            var serviceType = new ServiceBody()
             {
                 ServiceType = "jamb"
             };
@@ -291,7 +291,7 @@ namespace LocalPayTestClient.Services
             Console.WriteLine("Account Validation Response: " + providerBundleResponse.Data.User.Name);
         }
 
-       private void PurchasePostPaidElectricity()
+        private void PurchasePostPaidElectricity()
         {
             var electricity = new ElectricityBody
             {
@@ -320,7 +320,7 @@ namespace LocalPayTestClient.Services
             var electricityResponse = _baxiService.PurchasePrePaidElectricity(electricity).Result;
             Console.WriteLine("Purchase Pre Paid Electricity Response: " + electricityResponse.Data.StatusCode);
         }
-        
+
         private string RandomNumber()
         {
             var random = new Random();
