@@ -1,14 +1,31 @@
+using Newtonsoft.Json;
+
 namespace LocalPay.Flutterwave.Models
 {
     public class TransferPayloadNGN
     {
-        public string account_bank { get; set; }
-        public string account_number { get; set; }
-        public int amount { get; set; }
-        public string narration { get; set; }
-        public string currency { get; set; }
-        public string reference { get; set; }
-        public string callback_url { get; set; }
-        public string debit_currency { get; set; }
+        [JsonProperty("account_bank")]
+        public string AccountBank { get; set; } = string.Empty;
+
+        [JsonProperty("account_number")]
+        public string AccountNumber { get; set; } = string.Empty;
+
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; }
+
+        [JsonProperty("narration", NullValueHandling = NullValueHandling.Ignore)]
+        public string? Narration { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; } = "NGN";
+
+        [JsonProperty("reference")]
+        public string Reference { get; set; } = string.Empty;
+
+        [JsonProperty("callback_url", NullValueHandling = NullValueHandling.Ignore)]
+        public string? CallbackUrl { get; set; }
+
+        [JsonProperty("debit_currency")]
+        public string DebitCurrency { get; set; } = "NGN";
     }
 }

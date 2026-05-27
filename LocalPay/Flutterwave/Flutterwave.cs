@@ -1,58 +1,43 @@
-using System;
-using System.Net.Http;
-using System.Net.Http.Headers;
+using System.Threading;
 using System.Threading.Tasks;
 using LocalPay.Flutterwave.Models;
 using LocalPay.Interfaces;
-using Refit;
 
 namespace LocalPay.Flutterwave
 {
+    /// <summary>
+    /// Default <see cref="IFlutterwavePayments"/> implementation. The underlying
+    /// <see cref="IFlutterwaveService"/> Refit client is provided by
+    /// <c>IServiceCollection.AddFlutterwave(...)</c> and uses <c>IHttpClientFactory</c>.
+    /// </summary>
     public class FlutterwavePayments : IFlutterwavePayments
     {
-        private readonly FlutterwaveInitializationPayload _options;
-        private readonly IFlutterwaveService _flutterwaveService;
-        private string baseUrl = "https://api.flutterwave.com/v3";
-        public FlutterwavePayments(FlutterwaveInitializationPayload options)
+        private readonly IFlutterwaveService _service;
+
+        public FlutterwavePayments(IFlutterwaveService service)
         {
-            _options = options;
-            var client = new HttpClient(new HttpClientHandler())
-            {
-                BaseAddress = new Uri(baseUrl)
-            };
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", $"{_options.SecretKey}");
-            var buider = RequestBuilder.ForType<IFlutterwaveService>();
-            _flutterwaveService = RestService.For(client, buider);
+            _service = service;
         }
 
-        public async Task<TransferResponse> InitiateNgnTransfer(TransferPayloadNGN payload)
-        {
-            return await _flutterwaveService.InitiateNgnTransfer(payload);
-        }
+        public Task<TransferResponse> InitiateNgnTransfer(TransferPayloadNGN payload, CancellationToken cancellationToken = default)
+            => _service.InitiateNgnTransfer(payload, cancellationToken);
 
-        public async Task<PaymentInitializationResponse> InitiatePayment(PaymentPayload payload)
-        {
-            return await _flutterwaveService.InitiatePayment(payload);
-        }
+        public Task<PaymentInitializationResponse> InitiatePayment(PaymentPayload payload, CancellationToken cancellationToken = default)
+            => _service.InitiatePayment(payload, cancellationToken);
 
-        public async Task<PaymentResponse> InitiateTokenizedPayment(TokenizeChargeModel payload)
-        {
-            return await _flutterwaveService.InitiateTokenizedPayment(payload);
-        }
+        public Task<PaymentResponse> InitiateTokenizedPayment(TokenizeChargeModel payload, CancellationToken cancellationToken = default)
+            => _service.InitiateTokenizedPayment(payload, cancellationToken);
 
-        public async Task<PaymentResponse> ValidatePayment(int transactionId)
-        {
-            return await _flutterwaveService.ValidatePayment(transactionId);
-        }
+        public Task<PaymentResponse> ValidatePayment(long transactionId, CancellationToken cancellationToken = default)
+            => _service.ValidatePayment(transactionId, cancellationToken);
 
-        public async Task<TransferResponse> GetTransfer(int id)
-        {
-            return await _flutterwaveService.GetTransfer(id);
-        }
+        public Task<TransferResponse> GetTransfer(long id, CancellationToken cancellationToken = default)
+            => _service.GetTransfer(id, cancellationToken);
 
-        public async Task<GetBanksResponse> GetBanks(string country)
-        {
-            return await _flutterwaveService.GetBanks(country);
-        }
+        public Task<GetBanksResponse> GetBanks(string country, CancellationToken cancellationToken = default)
+            => _service.GetBanks(country, cancellationToken);
+
+        public Task<RefundResponse> RefundTransaction(long transactionId, RefundPayload payload, CancellationToken cancellationToken = default)
+            => _service.RefundTransaction(transactionId, payload, cancellationToken);
     }
 }

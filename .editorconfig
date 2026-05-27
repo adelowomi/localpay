@@ -1,0 +1,27 @@
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = space
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{json,yml,yaml,csproj,props,targets,xml}]
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.cs]
+# Use file-scoped namespaces (C# 10+)
+csharp_style_namespace_declarations = file_scoped:warning
+
+# Prefer var when type is apparent
+csharp_style_var_when_type_is_apparent = true:suggestion
+
+# Modern language features
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_style_expression_bodied_methods = when_on_single_line:silent
+dotnet_sort_system_directives_first = true

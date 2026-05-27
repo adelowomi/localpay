@@ -1,33 +1,77 @@
 using System;
+using Newtonsoft.Json;
 
 namespace LocalPay.Flutterwave.Models
 {
     public class PaymentResponse
     {
-        public string status { get; set; }
-        public string message { get; set; }
-        public PaymentResponseData data { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; } = string.Empty;
+
+        [JsonProperty("message")]
+        public string Message { get; set; } = string.Empty;
+
+        [JsonProperty("data")]
+        public PaymentResponseData? Data { get; set; }
     }
+
     public class PaymentResponseData
     {
-        public int id { get; set; }
-        public string tx_ref { get; set; }
-        public string flw_ref { get; set; }
-        public string device_fingerprint { get; set; }
-        public int amount { get; set; }
-        public string currency { get; set; }
-        public int charged_amount { get; set; }
-        public decimal app_fee { get; set; }
-        public int merchant_fee { get; set; }
-        public string processor_response { get; set; }
-        public string auth_model { get; set; }
-        public string ip { get; set; }
-        public string narration { get; set; }
-        public string status { get; set; }
-        public string payment_type { get; set; }
-        public DateTime created_at { get; set; }
-        public int account_id { get; set; }
-        public decimal amount_settled { get; set; }
-        public PaymentResponseCard Card { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("tx_ref")]
+        public string TxRef { get; set; } = string.Empty;
+
+        [JsonProperty("flw_ref")]
+        public string? FlwRef { get; set; }
+
+        [JsonProperty("device_fingerprint")]
+        public string? DeviceFingerprint { get; set; }
+
+        [JsonProperty("amount")]
+        public decimal Amount { get; set; }
+
+        [JsonProperty("currency")]
+        public string Currency { get; set; } = string.Empty;
+
+        [JsonProperty("charged_amount")]
+        public decimal ChargedAmount { get; set; }
+
+        [JsonProperty("app_fee")]
+        public decimal AppFee { get; set; }
+
+        [JsonProperty("merchant_fee")]
+        public decimal MerchantFee { get; set; }
+
+        [JsonProperty("processor_response")]
+        public string? ProcessorResponse { get; set; }
+
+        [JsonProperty("auth_model")]
+        public string? AuthModel { get; set; }
+
+        [JsonProperty("ip")]
+        public string? Ip { get; set; }
+
+        [JsonProperty("narration")]
+        public string? Narration { get; set; }
+
+        [JsonProperty("status")]
+        public string TransactionStatus { get; set; } = string.Empty;
+
+        [JsonProperty("payment_type")]
+        public string? PaymentType { get; set; }
+
+        [JsonProperty("created_at")]
+        public DateTime CreatedAt { get; set; }
+
+        [JsonProperty("account_id")]
+        public long AccountId { get; set; }
+
+        [JsonProperty("amount_settled")]
+        public decimal AmountSettled { get; set; }
+
+        [JsonProperty("card")]
+        public PaymentResponseCard? Card { get; set; }
     }
 }
