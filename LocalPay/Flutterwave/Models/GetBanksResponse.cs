@@ -1,18 +1,29 @@
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace LocalPay.Flutterwave.Models
 {
     public class GetBanksResponse
     {
-        public string status { get; set; }
-        public string message { get; set; }
-        public List<Banks> data { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; } = string.Empty;
+
+        [JsonProperty("message")]
+        public string Message { get; set; } = string.Empty;
+
+        [JsonProperty("data")]
+        public List<Bank> Data { get; set; } = new List<Bank>();
     }
 
-    public class Banks
+    public class Bank
     {
-        public int id { get; set; }
-        public string code { get; set; }
-        public string name { get; set; }
+        [JsonProperty("id")]
+        public long Id { get; set; }
+
+        [JsonProperty("code")]
+        public string Code { get; set; } = string.Empty;
+
+        [JsonProperty("name")]
+        public string Name { get; set; } = string.Empty;
     }
 }

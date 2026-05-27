@@ -1,14 +1,22 @@
+using Newtonsoft.Json;
+
 namespace LocalPay.Flutterwave.Models
 {
     public class PaymentInitializationResponse
     {
-        public string status { get; set; }
-        public string message { get; set; }
-        public PaymentInitializationResponseData data { get; set; }
+        [JsonProperty("status")]
+        public string Status { get; set; } = string.Empty;
+
+        [JsonProperty("message")]
+        public string Message { get; set; } = string.Empty;
+
+        [JsonProperty("data")]
+        public PaymentInitializationResponseData? Data { get; set; }
     }
 
     public class PaymentInitializationResponseData
     {
-        public string link { get; set; }
+        [JsonProperty("link")]
+        public string Link { get; set; } = string.Empty;
     }
 }

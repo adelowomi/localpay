@@ -1,13 +1,28 @@
+using Newtonsoft.Json;
+
 namespace LocalPay.Flutterwave.Models
 {
     public class PaymentResponseCard
     {
-        public string first_6digits { get; set; }
-        public string last_4digits { get; set; }
-        public string issuer { get; set; }
-        public string country { get; set; }
-        public string type { get; set; }
-        public string token { get; set; }
-        public string expiry { get; set; }
+        [JsonProperty("first_6digits")]
+        public string? First6Digits { get; set; }
+
+        [JsonProperty("last_4digits")]
+        public string? Last4Digits { get; set; }
+
+        [JsonProperty("issuer")]
+        public string? Issuer { get; set; }
+
+        [JsonProperty("country")]
+        public string? Country { get; set; }
+
+        [JsonProperty("type")]
+        public string? Type { get; set; }
+
+        [JsonProperty("token")]
+        public string? Token { get; set; }
+
+        [JsonProperty("expiry")]
+        public string? Expiry { get; set; }
     }
 }
